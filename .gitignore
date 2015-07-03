@@ -1,0 +1,6 @@
+*.suo
+NewsReaderExpress/Bin/
+NewsReaderExpress/obj/
+NewsReaderExpressPHP/Images
+bin
+App_Data
