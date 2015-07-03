@@ -1,0 +1,77 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NewsReaderExpress.Public"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="NEWS READER EXPRESS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Upload News" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer>
+                <StackPanel>
+
+                    <StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                            <TextBlock Text="News Photo" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="newsphoto" Width="200" Height="200" />
+                                <Button Name="choosephoto" BorderThickness="3" HorizontalAlignment="Right" Height="70" Width="200" Margin="20,0,0,0" Content="Choose photo" Click="choosephoto_Click" />
+                            </StackPanel>
+                            <TextBox Name="babyPhoto" Text="{Binding Baby.PhotoURI, Mode=TwoWay}" Visibility="Collapsed"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                            <TextBlock Text="Heading" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                            <TextBox x:Name="headLine" Margin="0,9.5,-1.167,9.5"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                                <TextBlock Text="News Type" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                            <RadioButton GroupName="newsType" Checked="newsType" Name="Sports" Content="Sports" IsChecked="True" FontSize="25"/>
+                            <RadioButton GroupName="newsType" Checked="newsType" Name="Technology" Content="Technology" FontSize="25"/>
+                            <RadioButton GroupName="newsType" Checked="newsType" Name="Politics" Content="Politics" FontSize="25"/>
+                            <RadioButton GroupName="newsType" Checked="newsType" Name="OtherTypes" Content="Other" FontSize="25"/>
+                            <TextBlock Name="choiceText" Visibility="Collapsed"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,12,0,0">
+                                <TextBlock Text="Details" TextWrapping="Wrap" Style="{StaticResource PhoneTextTitle2Style}"/>
+                            </StackPanel>
+                        <StackPanel Margin="0,12,0,0">
+                            <TextBox Name="details" Height="300"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button    Content="Connect" Background="#FF7986CB" Click="Save" FontSize="24" FontFamily="Global User Interface"></Button>
+                            <TextBlock Name="phpStatus" TextWrapping="Wrap" Margin="20,10,20,0" FontSize="24"  Text="..." Foreground="#FFF9FBFD"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
